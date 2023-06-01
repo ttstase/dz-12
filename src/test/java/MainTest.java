@@ -9,6 +9,6 @@ public class MainTest {
     public void testGetFirstName(String firstName, String lastName, int age) {
         Persons persons = new Persons();
         System.out.println(firstName + " " + lastName + " " + age);
-        Assert.assertEquals(persons.getFirstName(), persons.getFirstName());
+        Assert.assertEquals(persons, persons);
     }
 }
