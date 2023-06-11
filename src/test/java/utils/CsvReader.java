@@ -27,4 +27,36 @@ public class CsvReader {
 
         }
     }
+
+    private static final String PATH_MAN = "src\\test\\resources\\dataMan.csv";
+
+    public static List<Persons> getListManFromCsv(){
+        try {
+            BufferedReader reader = Files.newBufferedReader(Paths.get(PATH_MAN));
+            CsvToBean<Persons> csvObjectBuilder = new CsvToBeanBuilder<Persons>(reader)
+                    .withType(Persons.class)
+                    .build();
+            return csvObjectBuilder.parse();
+        }
+        catch (IOException ex) {
+            throw new RuntimeException("File not be found" + PATH_MAN + ex );
+
+        }
+    }
+
+    private static final String PATH_WOMAN = "src\\test\\resources\\dataWoman.csv";
+
+    public static List<Persons> getListWomanFromCsv(){
+        try {
+            BufferedReader reader = Files.newBufferedReader(Paths.get(PATH_WOMAN));
+            CsvToBean<Persons> csvObjectBuilder = new CsvToBeanBuilder<Persons>(reader)
+                    .withType(Persons.class)
+                    .build();
+            return csvObjectBuilder.parse();
+        }
+        catch (IOException ex) {
+            throw new RuntimeException("File not be found" + PATH_WOMAN + ex );
+
+        }
+    }
 }

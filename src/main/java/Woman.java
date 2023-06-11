@@ -6,6 +6,11 @@ public class Woman extends Person{
 
     @Override
     public boolean isRetired() {
-        return getAge() >= 60;
+        if (getAge() >= 60) {
+            System.out.println(getFirstName() + " " + getLastName() + " is retired");
+            return true;
+        }
+        System.out.println(getFirstName() + " " + getLastName() + " has not yet reached retirement age");
+        return false;
     }
 }

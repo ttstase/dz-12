@@ -1,6 +1,6 @@
 import java.sql.SQLOutput;
 
-public abstract class Person {
+public class Person {
     private String firstName;
     private String lastName;
     private int age;
@@ -42,19 +42,21 @@ public abstract class Person {
         this.partner = partner;
     }
 
-    public abstract boolean isRetired();
+    public boolean isRetired() {
+        return false;
+    }
 
     public void registerPartnership(Person partner) {
         if (this.partner == null && partner.getPartner() == null) {
-        this.partner = partner;
-        if (this instanceof Woman) {
-            this.setLastName(partner.getLastName());
+            this.partner = partner;
+            if (this instanceof Woman) {
+                this.setLastName(partner.getLastName());
+            }
+            else {
+                System.out.println(getFirstName() + " " + getLastName() + " already has a partner");
+            }
         }
-        else {
-            System.out.println("This person already has a partner");
-        }
-        }
-            partner.setPartner(this);
+        partner.setPartner(this);
 
     }
     public void deregisterPartnership(boolean shouldRevertLastName) {
